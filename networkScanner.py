@@ -7,11 +7,10 @@ if __name__ == '__main__':
    t_IP = gethostbyname(target)
    print ('Starting scan on host: ', t_IP)
    
-   for i in range(50, 500):
+   for P in [5000,3306]:
       s = socket(AF_INET, SOCK_STREAM)
-      
-      conn = s.connect_ex((t_IP, i))
+      conn = s.connect_ex((t_IP, P))
       if(conn == 0) :
-         print ('Port %d: OPEN' % (i,))
+         print ('Port %d: OPEN' % (P,))
       s.close()
 print('Time taken:', time.time() - startTime)
